@@ -45,7 +45,7 @@ io.use((socket, next) => {
   console.log("userJoin: ", user.name, socket.id);
 
   socket.on("msg", (message) => {
-    socket.emit("msg", `${user.name}: ${message}`);
+    socket.broadcast.emit("msg", `${user.name}: ${message}`);
   });
 
   socket.on("disconnect", () => {
